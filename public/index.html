@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Draw and Bluff</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>✏️ Draw and Bluff</h1>
+
+    <section id="home" class="card">
+      <label>Nickname
+        <input id="name" maxlength="12" placeholder="Your name" autocomplete="off">
+      </label>
+      <p class="label">Pick a color</p>
+      <div id="colors" class="colors"></div>
+      <button id="createBtn">Create room</button>
+      <div class="or">or join a friend</div>
+      <div class="row">
+        <input id="code" maxlength="4" placeholder="CODE" autocomplete="off">
+        <button id="joinBtn" class="secondary">Join</button>
+      </div>
+      <p id="error" class="error"></p>
+    </section>
+
+    <section id="lobby" class="card hidden">
+      <p class="label">Room code</p>
+      <div id="roomCode" class="roomcode"></div>
+      <ul id="players" class="players"></ul>
+      <p id="count" class="muted"></p>
+      <button id="startBtn" class="hidden">Start game</button>
+      <p id="waiting" class="muted hidden">Waiting for the host to start…</p>
+      <p id="lobbyError" class="error"></p>
+    </section>
+
+    <section id="game" class="card hidden">
+      <p id="roundInfo" class="muted"></p>
+      <p class="label">Category</p>
+      <div id="category" class="big"></div>
+      <div id="roleBox" class="rolebox"></div>
+      <div id="timer" class="timer"></div>
+      <p id="phaseMsg" class="muted"></p>
+      <canvas id="board" width="600" height="400"></canvas>
+
+      <div id="voteBox" class="hidden">
+        <p class="label">Tap the player you think is the imposter</p>
+        <div id="voteList" class="votelist"></div>
+        <p id="voteStatus" class="muted"></p>
+      </div>
+
+      <div id="resultBox" class="resultbox hidden"></div>
+
+      <p class="label">Scores</p>
+      <ul id="scoreboard" class="players"></ul>
+    </section>
+  </main>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>
